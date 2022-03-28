@@ -30,7 +30,8 @@ async def on_message(message):
         return
 
     if message.content[0:5] == '/help':
-        suggestions = help.give_help(words, message.content[5:].strip())
+        suggestions = help.give_help(
+            words, message.content[5:].strip(), config('SEPARATION_SYMBOL'))
         await message.channel.send(', '.join(suggestions))
 
 client.run(TOKEN)

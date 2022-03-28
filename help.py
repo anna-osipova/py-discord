@@ -4,7 +4,7 @@ def split(word):
 # _____ include:abc exclude:de
 
 
-def give_help(words, message):
+def give_help(words, message, separation_symbol):
     results = []
     parts = [x.strip() for x in message.split()]
 
@@ -17,7 +17,7 @@ def give_help(words, message):
         split_word = split(word)
 
         for i, _ in enumerate(pattern):
-            if pattern[i] != '-' and pattern[i] != word[i]:
+            if pattern[i] != separation_symbol and pattern[i] != word[i]:
                 matches = False
                 continue
 
