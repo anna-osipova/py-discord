@@ -1,5 +1,5 @@
-def read_words():
-    words_file = open('./words_5.txt', 'r')
+def read_words(file_name):
+    words_file = open(file_name, 'r')
     words = []
 
     for word in words_file.readlines():
