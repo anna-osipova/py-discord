@@ -1,8 +1,13 @@
 def split(word):
     return [char for char in word]
 
-# _____ include:abc exclude:de
+# ????? include:abc exclude:de
 
+def get_message(suggestions):
+    if len(suggestions) > 0:
+       return ', '.join(suggestions)
+    else:
+        return 'No matches'
 
 def give_help(words, message, separation_symbol):
     results = []
@@ -31,4 +36,4 @@ def give_help(words, message, separation_symbol):
 
         results.append(word) if matches else None
 
-    return results
+    return get_message(results)

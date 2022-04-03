@@ -31,19 +31,13 @@ async def on_message(message):
         return
 
     if message.content[0:7] == '/helpru':
-        suggestions = help.give_help(
+        response = help.give_help(
             ru_words, message.content[5:].strip(), config('SEPARATION_SYMBOL'))
-        if len(suggestions) > 0:
-            await message.channel.send(', '.join(suggestions))
-        else:
-            await message.channel.send('No matches')
-    elif message.content[0:5] == '/help':
-        suggestions = help.give_help(
-            words, message.content[5:].strip(), config('SEPARATION_SYMBOL'))
-        if len(suggestions) > 0:
-            await message.channel.send(', '.join(suggestions))
-        else:
-            await message.channel.send('No matches')
 
+    elif message.content[0:5] == '/help':
+        response = help.give_help(
+            words, message.content[5:].strip(), config('SEPARATION_SYMBOL'))
+
+    await message.channel.send(response)
 
 client.run(TOKEN)
