@@ -27,16 +27,17 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+
     if message.author == client.user:
         return
 
-    if message.content[0:7] == '/helpru':
+    if message.content[0:6] == 'helpru':
         response = help.give_help(
-            ru_words, message.content[5:].strip(), config('SEPARATION_SYMBOL'))
+            ru_words, message.content[6:].strip(), config('SEPARATION_SYMBOL'))
 
-    elif message.content[0:5] == '/help':
+    elif message.content[0:4] == 'help':
         response = help.give_help(
-            words, message.content[5:].strip(), config('SEPARATION_SYMBOL'))
+            words, message.content[4:].strip(), config('SEPARATION_SYMBOL'))
 
     await message.channel.send(response)
 
